@@ -1,0 +1,27 @@
+<% include ./partials/header.ejs %>
+    <div class=" border rounded mt-3 pl-5 pt-1">
+        <div>
+            <img src="<%= blog.image %> " class="img-fluid rounded ml-3 mx-auto" style="width: 600px;">
+        </div>
+        <div>
+            <div>
+                <h2><%= blog.title %></h2>
+            </div>
+            <div class="float-right">
+                <%= blog.created.toDateString() %>
+            </div>
+        </div>
+        <div>
+            <p>
+                <%- blog.body %>
+            </p>
+        </div>
+        <div class="text-center">
+            <a href="/blogs/<%= blog._id %>/edit" class="btn btn-primary d-inline btn-lg">Update</a>
+            <form action="/blogs/<%= blog._id %>?_method=DELETE" method="POST" class=" d-inline">
+                <!-- <button class="btn btn-danger btn-lg ml-5 ">Delete</button> -->
+                <input type="submit" value="Delete" class="btn btn-danger btn-lg ml-5 " >
+            </form>
+        </div>
+    </div>
+    <% include ./partials/footer.ejs %>
