@@ -5,7 +5,7 @@ var express		= require('express'),
 	methodOverride = require('method-override'),
 	expressSanitizer = require('express-sanitizer');
 
-// mongoose.connect("mongodb://localhost/blogApp");
+//mongoose.connect("mongodb://localhost/blogApp");
 mongoose.connect("mongodb://Skpuri:Skpuri@ds263988.mlab.com:63988/blogapp");
 
 
@@ -42,7 +42,9 @@ var Blog = mongoose.model("Blog" ,blogSchema);
 // index page
 app.get("/",(req,res)=>{
 	res.redirect("/blogs");
-})
+});
+
+
 app.get("/blogs",(req, res)=>{
 	Blog.find({},(err,blogs)=>{
 			if(err){
@@ -59,9 +61,7 @@ app.get("/blogs",(req, res)=>{
 //New route
 app.get("/blogs/new", function(req, res){
 	res.render("new");
-});
-
-//Create route
+});//Create route
 app.post("/blogs",(req, res)=>{
 	// create blog
 	//sanatizing(removing script tags in body of blog)
@@ -100,9 +100,9 @@ app.get("/blogs/:id/edit",(req, res)=>{
 				blog:foundBlog
 			});
 		}
-	})
+	});
 	
-})
+});
 
 //Update Route
 app.put("/blogs/:id",(req, res)=>{
@@ -131,8 +131,13 @@ app.delete("/blogs/:id", (req, res)=>{
 	
 });
 
+//todo
+app.get("/todos", (req, res)=>{
+	res.render("todos/index.ejs");
+});
 
-app.listen(process.env.PORT || 8000, ()=>{
+
+app.listen(process.env.PORT || 3000, ()=>{
 	console.log("Server is running ");
 });
 
