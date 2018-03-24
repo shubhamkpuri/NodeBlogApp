@@ -46,7 +46,8 @@ app.get("/",(req,res)=>{
 
 
 app.get("/blogs",(req, res)=>{
-	Blog.find({},(err,blogs)=>{
+	Blog.find({},( err ,blogs)=>{
+		
 			if(err){
 				console.log("ERROR!");
 			}else{

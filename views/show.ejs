@@ -7,8 +7,16 @@
             <div>
                 <h2><%= blog.title %></h2>
             </div>
-            <div class="float-right">
-                <%= blog.created.toDateString() %>
+            <div class="float-right bg-primary text-white mr-1 p-lg-2 rounded text-center">
+                <% var btime = blog.created  %>
+            <!--     <%= btime.getYear() %> -->
+                
+               
+                <%= btime.getDate() %> /
+                <%= btime.getMonth() %>
+                <br>
+                <b> <%= btime.getFullYear() %></b>
+                
             </div>
         </div>
         <div>

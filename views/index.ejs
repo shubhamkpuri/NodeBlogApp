@@ -1,5 +1,6 @@
 <% include ./partials/header.ejs %>
-    <p class="text-center"><h2>Your Daily Dairy</h2></p>
+    <p class="text-center">
+        <h2>Your Daily Dairy</h2></p>
     <% blogs.forEach(function(blog) { %>
         <div class=" border mt-3 pl-5 pt-3 pb-3">
             <div>
@@ -10,9 +11,24 @@
             </div>
             <div>
                 <p>
-                    <%= blog.body.substring(0,100) %> ...</p>
+                    <% var blogBody = blog.body %>
+                        <% 
+                       try{
+                            var bcc=blogBody.substring(0,100)
+                            %>
+                            <%- bcc %>
+                        
+                        <% }
+                        catch (e){
+                            console.log("Error ", e.stack);
+                            console.log("Error ", e.name);
+                            console.log("Error ", e.message);
+
+                        } %>
+                                            ...
+                </p>
                 <a href="/blogs/<%= blog._id %>" class="btn btn-info ">Read More</a>
             </div>
         </div>
         <% }); %>
- <% include ./partials/footer.ejs %>
+            <% include ./partials/footer.ejs %>
