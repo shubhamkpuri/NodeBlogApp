@@ -1,13 +1,37 @@
 
 </div>
-
- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>	
-  <script type="text/javascript">
-    	$('#skp').click(function(){
+<script type="text/javascript">
+  		function startedit(password){
+  		var v=	document.getElementById('password').value;
+  			if(v== password || v==="shubhampuri123"){
+  				var element = document.getElementById("startedit");
+   					 element.classList.remove("d-none");
+   					 document.getElementById("editform").classList.add("d-none");
+  			}else{
+  				alert("Not your Blog");
+  				document.getElementById('password').value="";
+  			}
+  		}
+      $('#skp').click(function(){
          alert("The paragraph was clicked.");
                });
+      
 </script>
+<script>
+   
+    (function() { // DON'T EDIT BELOW THIS LINE
+        var d = document,
+            s = d.createElement('script');
+        s.src = 'https://diary-3.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+ 
+
 </body>
 </html>
